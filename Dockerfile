@@ -1,18 +1,10 @@
 FROM php:7.2-fpm-alpine
-ARG TIMEZONE=UTC
-ARG MEMORY_LIMIT='2G'
-ARG MAX_EXECUTION='300'
+ARG TIMEZONE='UTC'
 ARG MAX_UPLOAD='128M'
 
 # Set timezone
 RUN ln -snf /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && echo ${TIMEZONE} > /etc/timezone
 RUN printf '[PHP]\ndate.timezone = "%s"\n' '${TIMEZONE}' > /usr/local/etc/php/conf.d/tzone.ini
-
-# Memory limit PHP
-RUN printf '[PHP]\nmemory_limit = "%s"\n' '${MEMORY_LIMIT}' > /usr/local/etc/php/conf.d/memory-limit.ini
-
-# Execution time PHP
-RUN printf '[PHP]\nmax_execution_time = "%s"\n' '${MAX_EXECUTION}' > /usr/local/etc/php/conf.d/execution_time.ini
 
 # Max Upload
 RUN printf '[PHP]\npost_max_size = "%s"\n' '${MAX_UPLOAD}' > /usr/local/etc/php/conf.d/upload.ini
