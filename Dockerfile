@@ -23,12 +23,7 @@ RUN printf '[PHP]\nexpose_php = "%s"\n' 'Off' >> /usr/local/etc/php/conf.d/secur
 RUN printf 'display_errors = "%s"\n' '0' >> /usr/local/etc/php/conf.d/security.ini
 
 # Extension dependencies
-RUN apk --no-cache add \
-	libffi-dev \
-    postgresql-dev \
-    zlib-dev \
-    icu-dev \
-    librdkafka-dev
+RUN apk --no-cache add libffi-dev postgresql-dev zlib-dev icu-dev librdkafka-dev
 
 # PHP extensions
 RUN docker-php-ext-install pdo pdo_pgsql zip intl hash opcache bcmath pcntl sockets
