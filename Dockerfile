@@ -25,10 +25,10 @@ RUN printf 'display_errors = "%s"\n' '0' >> /usr/local/etc/php/conf.d/security.i
 # Extension dependencies
 RUN apk --no-cache add \
 	libffi-dev \
-        postgresql-dev \
-        zlib-dev \
-        icu-dev \
-        librdkafka-dev
+    postgresql-dev \
+    zlib-dev \
+    icu-dev \
+    librdkafka-dev
 
 # PHP extensions
 RUN docker-php-ext-install pdo pdo_pgsql zip intl hash opcache bcmath pcntl sockets
@@ -44,4 +44,3 @@ RUN docker-php-source extract \
     && docker-php-ext-enable rdkafka \
     && apk del .phpize-deps-configure \
     && docker-php-source delete
-
