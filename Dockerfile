@@ -30,4 +30,5 @@ RUN printf 'upload_max_filesize = "%s"\n' '${MAX_UPLOAD}' >> /usr/local/etc/php/
 
 # Security
 RUN printf '[PHP]\nexpose_php = "%s"\n' 'Off' > /usr/local/etc/php/conf.d/security.ini
-RUN printf 'display_errors = "%s"\n' '0' >> /usr/local/etc/php/conf.d/security.ini
+RUN printf 'display_errors = "%s"\n' 'stderr' >> /usr/local/etc/php/conf.d/security.ini
+
