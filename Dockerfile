@@ -28,7 +28,7 @@ RUN printf '[PHP]\ndate.timezone = "%s"\n' '${TIMEZONE}' > /usr/local/etc/php/co
 RUN printf '[PHP]\npost_max_size = "%s"\n' '${MAX_UPLOAD}' > /usr/local/etc/php/conf.d/upload.ini
 RUN printf 'upload_max_filesize = "%s"\n' '${MAX_UPLOAD}' >> /usr/local/etc/php/conf.d/upload.ini
 
-# Security
-RUN printf '[PHP]\nexpose_php = "%s"\n' 'Off' > /usr/local/etc/php/conf.d/security.ini
-RUN printf 'display_errors = "%s"\n' 'stderr' >> /usr/local/etc/php/conf.d/security.ini
+## Security
+#RUN printf '[PHP]\nexpose_php = "%s"\n' 'Off' > /usr/local/etc/php/conf.d/security.ini
+#RUN printf 'display_errors = "%s"\n' 'stderr' >> /usr/local/etc/php/conf.d/security.ini
 
