@@ -26,7 +26,7 @@ RUN docker-php-source extract \
     && docker-php-ext-enable redis \
     && pecl install apcu \
     && docker-php-ext-enable apcu  \
-    && pecl install rdkafka \
+    && pecl install rdkafka-3.0.5 \
     && docker-php-ext-enable rdkafka \
     && apk del .phpize-deps-configure \
     && docker-php-source delete
